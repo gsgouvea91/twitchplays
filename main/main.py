@@ -20,8 +20,8 @@ s = socket.socket()
 s.connect((server,port))
 s.send(f"PASS {token}\n".encode('utf-8'))
 s.send(f"NICK {username}\n".encode('utf-8'))
-s.send(f"JOIN {channel}\n".encode('utf-8'))
-s.send(f"JOIN {channel1}\n".encode('utf-8'))
+s.send(f"JOIN #{channel}\n".encode('utf-8'))
+s.send(f"JOIN #{channel1}\n".encode('utf-8'))
 
 # Joins chat.
 def joinchat():
@@ -42,8 +42,8 @@ def loadingComplete(line):
         return True
 #Sends messages to chat, currently fitted to send messages to 2 chats at the same time
 def sendMessage(s,message):
-    messageTemp = "PRIVMSG " +channel+" :"+ message
-    messageTemp1 = "PRIVMSG " +channel1+" :"+ message
+    messageTemp = "PRIVMSG #" +channel+" :"+ message
+    messageTemp1 = "PRIVMSG #" +channel1+" :"+ message
     s.send((messageTemp+"\n").encode())
     s.send((messageTemp1+"\n").encode())
 
