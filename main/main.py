@@ -42,8 +42,8 @@ def loadingComplete(line):
         return True
 #Sends messages to chat, currently fitted to send messages to 2 chats at the same time
 def sendMessage(s,message):
-    messageTemp = "PRIVMSG #" +channel+" :"+ message
-    messageTemp1 = "PRIVMSG #" +channel1+" :"+ message
+    messageTemp = "PRIVMSG " +channel+" :"+ message
+    messageTemp1 = "PRIVMSG " +channel1+" :"+ message
     s.send((messageTemp+"\n").encode())
     s.send((messageTemp1+"\n").encode())
 
@@ -63,7 +63,7 @@ def getMessage(line):
 
 #Detect's if chat message is from server or user
 def Console(line):
-    if "PRIVMSG" in line:
+    if "PRIVMSG " in line:
         return False
     else:
         return True
@@ -99,7 +99,7 @@ try:
                 user = getUser(line)
                 message = getMessage(line)
                 #presser(message) #uncomment/modify this function for let's plays
-                sendMessage(s,message)
+                #sendMessage(s,message) #Uncoment to send messages.
                 print (user+" : "+message)
 except KeyboardInterrupt:
     exit()         

@@ -7,8 +7,8 @@ class Config:
     def __init__(self):
         self._username ='<username>'
         self._token = '<oauth>'
-        self._channel = '<channel>'
-        self._channel1= '<channel1>'
+        self._channel = '<#channel>'
+        self._channel1= '<#channel1>'
         self._bot='MyBot'
         self._server = 'irc.chat.twitch.tv'
         self._port =  6667
